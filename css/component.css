@@ -1,0 +1,35 @@
+INPUT {
+    color: black;
+    font-family: Verdana,Arial Narrow, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 90%;
+    font-style: normal;
+}
+select{
+    color: black;
+    font-family: Verdana,Arial Narrow, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 90%;
+    font-style: normal;
+}
+button{
+    background-color: #046A38;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.validation-msg{
+    display: none;
+    position: absolute;
+    width: auto;
+    height: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+    color: red;
+    font-family: sans-serif;
+    top: 0;
+
+}

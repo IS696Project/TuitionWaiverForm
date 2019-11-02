@@ -1,0 +1,118 @@
+
+.top-border{
+    border-top: 2px solid black !important;
+}
+.bold{
+    font-weight: bold !important;
+}
+table.no-border, table.no-border td{
+    border: none;
+}
+
+.container{
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+.header{
+    height: 75px;
+    width: 100%;
+    margin: 0 auto;
+    background: url("../images/header.png") no-repeat ;
+    background-size: cover;
+}
+.header > div{
+    float: right;
+    color: #97D700;
+    font-family: "Arial Black";
+    font-size: 25px;
+    padding-right: 5px;
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+}
+.title, .sub-title{
+    font-family: "Arial Black";
+    font-size: 30px;
+    color: #046A38;
+    text-align: center;
+    padding: 5px;
+}
+.sub-title{
+    font-size: 20px;
+}
+.guidelines, .form{
+    width: 100%;
+}
+.guidelines{
+    text-align: left;
+    font-family: "Times New Roman";
+}
+.guidelines > table{
+    margin-left: 20px;
+}
+.guidelines  p, .guidelines h2, .guidelines table{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.guidelines p, .guidelines li{
+    line-height: 1.2;
+    text-align: left;
+}
+.guidelines table, .guidelines th, .guidelines td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.guidelines > ul{
+    padding-left: 60px;
+}
+
+.button-large{
+    width: 150px;
+    height: 45px;
+    font-size: 15px;
+}
+.button-small{
+    width: 75px;
+    height: 25px;
+    font-size: 12px;
+}
+.form{
+    font-family: sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.required:after{
+    content: "*";
+    color: red;
+}
+
+.form-table, .classes-table{
+    margin: 0 auto;
+}
+.form-table th, .form-table  td{
+    border: none;
+    margin: 0 auto;
+    text-align: left;
+}
+.classes-table{
+    margin-top: 10px;
+}
+.classes-table, .classes-table th, .classes-table td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.classes-table th{
+    text-align: center;
+    color: white;
+    background-color: #046A38;
+}
+.classes-table > tfoot > tr > td:nth-last-child(-n+2){
+    border:none;
+}
+.classes-table input, .classes-table select{
+    width: 92%;
+}
