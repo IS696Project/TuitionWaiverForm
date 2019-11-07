@@ -8,7 +8,9 @@
 table.no-border, table.no-border td{
     border: none;
 }
-
+.fit{
+    width:100%;
+}
 .container{
     width: 75%;
     margin: 0 auto;
@@ -73,6 +75,11 @@ table.no-border, table.no-border td{
     height: 45px;
     font-size: 15px;
 }
+.button-medium{
+    width: 110px;
+    height: 25px;
+    font-size: 12px;
+}
 .button-small{
     width: 75px;
     height: 25px;
@@ -90,7 +97,7 @@ table.no-border, table.no-border td{
     color: red;
 }
 
-.form-table, .classes-table{
+.form-table, .list-table{
     margin: 0 auto;
 }
 .form-table th, .form-table  td{
@@ -98,14 +105,14 @@ table.no-border, table.no-border td{
     margin: 0 auto;
     text-align: left;
 }
-.classes-table{
+.list-table{
     margin-top: 10px;
 }
-.classes-table, .classes-table th, .classes-table td{
+.list-table, .list-table th, .list-table td{
     border: 1px solid black;
     border-collapse: collapse;
 }
-.classes-table th{
+.list-table th{
     text-align: center;
     color: white;
     background-color: #046A38;
@@ -115,4 +122,16 @@ table.no-border, table.no-border td{
 }
 .classes-table input, .classes-table select{
     width: 92%;
+}
+.horz-scroll-div{
+    width: 75%;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: scroll;
+    margin: 0 auto;
+    border: 1px solid #046A38;
+
+}
+.search-result-table{
+    width: 1200px;
 }
