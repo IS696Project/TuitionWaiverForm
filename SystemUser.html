@@ -1,0 +1,63 @@
++<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System User UI</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/component.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/employeeForm.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>Human Resources</div>
+        </div>
+        <div class="title">System User UI</div>
+		<br>
+        <div class="form">
+           <form onsubmit="return onFormSubmit()">
+               <table class="form-table" width="35%">
+                   <tr>
+                       <td>
+                           <label for="fname" class="required">Employee First Name</label>
+                       </td>
+                       <td>
+                            <input type="text" id="fname" name="fname">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="lname" class="required">Employee Last Name</label>
+                       </td>
+                       <td>
+                           <input type="text" id="lname" name="lname">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="email" class="required">Email</label>
+                       </td>
+                       <td>
+                           <input type="email" id="email" name="email">
+                       </td>
+                   </tr>
+				   
+				   
+                   
+               </table>
+			   <br><br>
+               <button type="create" class="button-large" id="CreateBtn" >Create</button>
+			   <br><br>
+			   
+		<button type="cancel" class="button-large" id="CancelBtn" >Create</button>
+			   <br><br>
+               
+
+       
+    <div class="validation-msg">Please fill all required fields</div>
+	</form>
+</body>
+</html>
