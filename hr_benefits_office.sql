@@ -26,6 +26,14 @@ CREATE TABLE `employee` (
   `semester` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+  `id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `action` varchar(1024) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `setting`;
 CREATE TABLE `setting` (
   `due_date` date NOT NULL DEFAULT '2019-09-05',
@@ -59,6 +67,18 @@ CREATE TABLE `tuition_waiver` (
   `value` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `position` varchar(255) DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL,
+  `active` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 ALTER TABLE `class`
   ADD PRIMARY KEY (`id`),
@@ -66,6 +86,10 @@ ALTER TABLE `class`
 
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `log_user_id` (`user_id`);
 
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`),
@@ -75,11 +99,17 @@ ALTER TABLE `tuition_waiver`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tuition_waiver_employee` (`employee_id`);
 
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
 
 ALTER TABLE `class`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `employee`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `log`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `student`
@@ -88,9 +118,15 @@ ALTER TABLE `student`
 ALTER TABLE `tuition_waiver`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 ALTER TABLE `class`
   ADD CONSTRAINT `student_class_id` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`);
+
+ALTER TABLE `log`
+  ADD CONSTRAINT `log_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 ALTER TABLE `student`
   ADD CONSTRAINT `student_employee_id` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
