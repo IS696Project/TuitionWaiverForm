@@ -55,6 +55,20 @@ class DB
             echo $sql . "<br>" . $error->getMessage();
         }
     }
+    function read($table, $where){
+
+        $sql = "SELECT * FROM $table WHERE ";
+        if($where !== "")
+            $sql .= $where;
+        else
+            $sql .= "1";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+
+        $result = $statement->fetchAll();
+        return $result;
+    }
 
 
 }

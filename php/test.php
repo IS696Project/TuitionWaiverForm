@@ -8,6 +8,15 @@ testUpdateStudentForm();
 testInsertClass();
 testUpdateClass();
 testUpdateSetting();
+testReadEmployee();
+
+function testReadEmployee(){
+    $db = new DB();
+    $result = $db->read("employee", "id>1");
+    foreach ($result as $row){
+        echo $row["first_name"]."<br>";
+    }
+}
 function testUpdateSetting(){
     $data = array(
         "grad_cost" => "0"
