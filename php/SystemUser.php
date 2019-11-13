@@ -5,9 +5,9 @@
     <title>System User UI</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/component.css">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/SystemUser.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/SystemUser.js"></script>
 
 </head>
 <body>

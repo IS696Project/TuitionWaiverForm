@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EMPLOYEE APPLICATION FOR TUITION WAIVER</title>
+    <title>SPOUSE / DEPENDENT APPLICATION FOR TUITION WAIVER</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/component.css">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/employeeForm.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/dependentForm.js"></script>
 
 </head>
 <body>
@@ -15,16 +15,17 @@
         <div class="header">
             <div>Human Resources</div>
         </div>
-        <div class="title">EMPLOYEE APPLICATION FOR TUITION WAIVER</div>
+        <div class="title">SPOUSE / DEPENDENT APPLICATION FOR TUITION WAIVER</div>
+        <div class="sub-title">Employee Information</div>
         <div class="form">
            <form onsubmit="return onFormSubmit()">
                <table class="form-table" width="50%">
                    <tr>
                        <td>
-                           <label for="e_class" class="required">Employee Class</label>
+                           <label for="eclass" class="required">Employee Class</label>
                        </td>
                        <td>
-                           <select id="e_class" name="e_class">
+                           <select id="eclass" name="eclass">
                                <option value="-1" selected>Please Select</option>
                                <option value="AC">AC</option>
                                <option value="AH">AH</option>
@@ -43,26 +44,26 @@
                    </tr>
                    <tr>
                        <td>
-                           <label for="first_name" class="required">Employee First Name</label>
+                           <label for="fname" class="required">Employee First Name</label>
                        </td>
                        <td>
-                            <input type="text" id="first_name" name="first_name">
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           <label for="last_name" class="required">Employee Last Name</label>
-                       </td>
-                       <td>
-                           <input type="text" id="last_name" name="last_name">
+                            <input type="text" id="fname" name="fname">
                        </td>
                    </tr>
                    <tr>
                        <td>
-                           <label for="eid_number" class="required">EID Number</label>
+                           <label for="lname" class="required">Employee Last Name</label>
                        </td>
                        <td>
-                           <input type="text" id="eid_number" name="eid_number">
+                           <input type="text" id="lname" name="lname">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="eid" class="required">EID Number</label>
+                       </td>
+                       <td>
+                           <input type="text" id="eid" name="eid">
                        </td>
                    </tr>
                    <tr>
@@ -84,14 +85,43 @@
                    </tr>
                    <tr>
                        <td>
-                           <label for="hired_date">Date of Hire</label>
+                           <label for="dateOfHire">Date of Hire</label>
                        </td>
                        <td>
-                           <input type="date" id="hired_date" name="hired_date">
+                           <input type="date" id="dateOfHire" name="dateOfHire">
                        </td>
                    </tr>
                    <tr>
                        <td colspan="2" class="top-border"></td>
+                   </tr>
+                   <tr>
+                       <td colspan="2">
+                        <div class="sub-title">Spouse / Dependent Information</div>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="sfname" class="required">Spouse/Dependent First Name</label>
+                       </td>
+                       <td>
+                           <input type="text" id="sfname" name="sfname">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="slname" class="required">Spouse/Dependent Last Name</label>
+                       </td>
+                       <td>
+                           <input type="text" id="slname" name="slname">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="seid" class="required">Spouse/Dependent EID Number</label>
+                       </td>
+                       <td>
+                           <input type="text" id="seid" name="seid">
+                       </td>
                    </tr>
                    <tr>
                        <td>
@@ -110,9 +140,8 @@
                <table class="list-table classes-table" width="75%">
                    <thead>
                    <tr>
-                        <th width="30%">Name of Class (6 or up to 12<br>credits allowed only)</th>
-                        <th width="30%">Number of Credit Hours</th>
-                        <th width="30%">Undergraduate/<br>Graduate/Doctoral</th>
+                        <th width="45%">Name of Class (6 or up to 12<br>credits allowed only)</th>
+                        <th width="45%">Number of Credit Hours</th>
                        <th width="10%"></th>
                    </tr>
                    </thead>
@@ -124,7 +153,6 @@
                            <td align="right"><b>Total Number of Credit Hours:</b></td>
                            <td><span id="totalCredit" class="bold">0</span></td>
                            <td></td>
-                           <td></td>
                        </tr>
                    </tfoot>
                </table>
@@ -132,22 +160,13 @@
                <table class="list-table classes-table no-border" width="75%" border="0">
                    <tbody>
                    <tr>
-                       <td width="30%">
+                       <td width="45%">
                            <input type="text" id="className" name="className" placeholder="Class Name"><label
                                class="required"></label>
                        </td>
-                       <td width="30%">
+                       <td width="45%">
                            <input type="number" min="1" max="4" id="nCredits" name="nCredits"
                                   placeholder="Number of Credit"><label
-                               class="required"></label>
-                       </td>
-                       <td width="30%">
-                           <select id="gradLevel" name="gradLevel">
-                               <option value="-1" selected>Please Select</option>
-                               <option value="undergrad">Undergraduate</option>
-                               <option value="grad">Graduate</option>
-                               <option value="doc">Doctoral</option>
-                           </select><label
                                class="required"></label>
                        </td>
                        <td width="10%">
@@ -156,36 +175,35 @@
                    </tr>
                    </tbody>
                </table>
-
-        <div class="guidelines">
-            <ul>
-                <li>Classes held during normal working hours require completion of the enclosed <b>Working Hours Exception Agreement</b>.</li>
-                <li><b>Changes in credit hours requested must be made in writing to the Benefits Office as soon as the change is made</b>.</li>
-                <li>EMU is required to tax any tuition waiver amount exceeding <b>$5,250</b> per calendar year for graduate and doctoral level classes.</li>
-                <li>Failure to submit an application for approval before the 100% Drop Deadline will forfeit eligibility for that term.</li>
-                <li>It is employee’s responsibility to review the guidelines prior to submitting an application for tuition waiver.</li>
-            </ul>
-            <h2>PAYROLL AUTHORIZATION - IMPORTANT, READ BEFORE SIGNING:</h2>
-            <p>
-                I hereby agree that tuition waiver benefits are contingent upon my acceptance of the terms, conditions and limitations listed herein, and completion of all courses for which I register. Tuition waiver benefits will be forfeited and I authorize the University to deduct from my salary an amount equivalent to the cost of tuition for any course(s) for which waiver is granted if:
-            </p>
-            <ol>
-                <li>I fail to achieve a grade of "C" or above for undergraduate level courses, "B" or above for graduate or doctorate level courses, or "Pass" for courses utilizing the "Pass/Fail" option. (Grades of "C-" and "B-" are unacceptable.)</li>
-                <br>
-                <li>I receive a mark of "Incomplete" ("I") and I do not convert this mark to a passing grade within one calendar year, following termination of the semester in which the course was taken. Doctorate courses (EDLD 895-900) may be exceptions to this policy; upon the completion of your dissertation, provide the Benefits Office with evidence of successful conversion to a passing grade.</li>
-                <br>
-                <li>I receive a mark of "In Progress" ("IP") and/or “No Grade” (“N”) and I do not convert this mark to a passing grade or an “Incomplete” within one semester following termination of the semester in which the course was taken.</li>
-                <br>
-                <li>I withdraw from my course(s) after the date specified in the Class Schedule Book for a 100% tuition refund.</li>
-                <br>
-                <li>I voluntarily terminate from active employment prior to the completion of the semester for which I was enrolled.</li>
-            </ol>
-            <p>I understand that in the event a payroll deduction must be made as herein provided, the University will collect an amount not to exceed 25% of the gross amount of my regular pay check every pay period until the full amount is collected, unless I terminate my employment, in which case the entire amount may be deducted. <b>I also understand any amount of granted graduate tuition exceeding the IRS Qualified Educational Assistance Amount ($5,250) in a calendar year will be taxable.</b></p>
-        </div>
+               <div class="guidelines">
+                   <ul>
+                       <li><b>Changes in credit hours requested must be made in writing to the Benefits Office as soon as the change is made</b>.</li>
+                       <li>Failure to submit an application for approval before the 100% Drop Deadline will forfeit eligibility for that term.</li>
+                       <li>It is employee and spouse/dependent’s responsibility to review the guidelines prior to submitting an application for tuition waiver.</li>
+                   </ul>
+                   <h2>IMPORTANT, READ BEFORE SIGNING:</h2>
+                   <p>
+                       I hereby agree that tuition waiver benefits are contingent upon my acceptance of the terms and limitations listed herein and on the Tuition Waiver Guidelines, and completion of all courses for which I register. Tuition waiver benefits will be forfeited and the employee and the student will be responsible to pay back the full cost to the university for any course for which waiver is granted if:
+                   </p>
+                   <ol>
+                       <li>I fail to achieve a grade of "C" or above for courses, or "Pass" for courses utilizing the "Pass/Fail" option. (Grade of "C-" is unacceptable.)</li>
+                       <br>
+                       <li>I receive a mark of "Incomplete" ("I") and I do not convert this mark to a passing grade within one calendar year following termination of the semester in which the course was taken.</li>
+                       <br>
+                       <li>I receive a mark of "In Progress" ("IP") and/or “No Grade” (“N”) and I do not convert this mark to a passing grade or an “Incomplete” within one semester following termination of the semester in which the course was taken.</li>
+                       <br>
+                       <li>I withdraw from my course(s) after the date specified in the Class Schedule Book for a 100% tuition refund.</li>
+                   </ol>
+                   <h2>FOR EMPLOYEE:</h2>
+                   <p>I verify that my spouse/dependents are currently covered as dependent(s) under my health or dental plan with the university; if not, I understand I must provide proof of marriage or IRS dependency to the Benefits (copy of tax form, birth/adoption certificate) in advance.</p>
+               </div>
                <br><br>
                <button type="submit" class="button-large" id="submitBtn">Submit</button>
+               <input type="hidden" id="classes" name="classes">
            </form>
         </div>
+<!--        <button class="button-large" style="float: left">Continue as Employee</button>
+        <button class="button-large" style="float: right">Continue as Spouse/Dependent</button>-->
     </div>
     <div class="validation-msg">Please fill all required fields</div>
 </body>
