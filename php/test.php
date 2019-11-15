@@ -1,20 +1,23 @@
 <?php
 require "db.php";
 testInsertEmployeeForm();
-testUpdateEmployeeForm();
-testInsertStudentForm();
-testInsertEmployeeForm();
-testUpdateStudentForm();
-testInsertClass();
-testUpdateClass();
-testUpdateSetting();
-testReadEmployee();
+//testUpdateEmployeeForm();
+//testInsertStudentForm();
+//testInsertEmployeeForm();
+//testUpdateStudentForm();
+//testInsertClass();
+//testUpdateClass();
+//testUpdateSetting();
+//testReadEmployee();
 
 function testReadEmployee(){
     $db = new DB();
-    $result = $db->read("employee", "id>1");
+    $result = $db->read("employee", "id=1 OR id=2");
     foreach ($result as $row){
         echo $row["first_name"]."<br>";
+        echo $row["last_name"]."<br>";
+        echo $row["eid_number"]."<br>";
+        echo $row["email"]."<br>";
     }
 }
 function testUpdateSetting(){
@@ -46,9 +49,9 @@ function testInsertClass(){
 }
 function testUpdateEmployeeForm(){
     $new_form = array(
-        "first_name" => "Sam",
-        "last_name" => "Smith",
-        "email" => "halramma@emich.edu",
+        "first_name" => "Jay",
+        "last_name" => "Sharma",
+        "email" => "jsharma@emich.edu",
         "eid_number" => "E12345678",
         "e_class" => "CA",
         "phone" => "616-843-6820",
@@ -77,8 +80,8 @@ function testInsertEmployeeForm(){
         "first_name" => "Haider",
         "last_name" => "AlRammahi",
         "email" => "halramma@emich.edu",
-        "eid_number" => "E12345678",
-        "e_class" => "AC",
+        "eid_number" => "E1111111",
+        "e_class" => "CS",
         "phone" => "616-843-6820",
         "semester" => "fall",
         "hired_date" => "2019-11-12"

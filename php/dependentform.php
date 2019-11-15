@@ -1,13 +1,16 @@
+<?php
+$date = new DateTime();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>SPOUSE / DEPENDENT APPLICATION FOR TUITION WAIVER</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="../css/main.css?ver=<?php echo $date->getTimestamp();?>">
+    <link rel="stylesheet" href="../css/component.css?ver=<?php echo $date->getTimestamp();?>">
     <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/dependentForm.js"></script>
+    <script src="../js/main.js?ver=<?php echo $date->getTimestamp();?>"></script>
+    <script src="../js/dependentForm.js?ver=<?php echo $date->getTimestamp();?>"></script>
 
 </head>
 <body>
@@ -18,14 +21,14 @@
         <div class="title">SPOUSE / DEPENDENT APPLICATION FOR TUITION WAIVER</div>
         <div class="sub-title">Employee Information</div>
         <div class="form">
-           <form onsubmit="return onFormSubmit()">
+           <form onsubmit="return onFormSubmit()" method="post" action="formsubmit.php">
                <table class="form-table" width="50%">
                    <tr>
                        <td>
-                           <label for="eclass" class="required">Employee Class</label>
+                           <label for="e_class" class="required">Employee Class</label>
                        </td>
                        <td>
-                           <select id="eclass" name="eclass">
+                           <select id="e_class" name="e_class">
                                <option value="-1" selected>Please Select</option>
                                <option value="AC">AC</option>
                                <option value="AH">AH</option>
@@ -44,26 +47,26 @@
                    </tr>
                    <tr>
                        <td>
-                           <label for="fname" class="required">Employee First Name</label>
+                           <label for="first_name" class="required">Employee First Name</label>
                        </td>
                        <td>
-                            <input type="text" id="fname" name="fname">
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           <label for="lname" class="required">Employee Last Name</label>
-                       </td>
-                       <td>
-                           <input type="text" id="lname" name="lname">
+                            <input type="text" id="first_name" name="first_name">
                        </td>
                    </tr>
                    <tr>
                        <td>
-                           <label for="eid" class="required">EID Number</label>
+                           <label for="last_name" class="required">Employee Last Name</label>
                        </td>
                        <td>
-                           <input type="text" id="eid" name="eid">
+                           <input type="text" id="last_name" name="last_name">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="eid_number" class="required">EID Number</label>
+                       </td>
+                       <td>
+                           <input type="text" id="eid_number" name="eid_number">
                        </td>
                    </tr>
                    <tr>
@@ -79,16 +82,15 @@
                            <label for="phone">Phone Number</label>
                        </td>
                        <td>
-                           <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                  placeholder="xxx-xxx-xxxx">
+                           <input type="tel" id="phone" name="phone">
                        </td>
                    </tr>
                    <tr>
                        <td>
-                           <label for="dateOfHire">Date of Hire</label>
+                           <label for="hired_date">Date of Hire</label>
                        </td>
                        <td>
-                           <input type="date" id="dateOfHire" name="dateOfHire">
+                           <input type="date" id="hired_date" name="hired_date">
                        </td>
                    </tr>
                    <tr>
@@ -101,26 +103,26 @@
                    </tr>
                    <tr>
                        <td>
-                           <label for="sfname" class="required">Spouse/Dependent First Name</label>
+                           <label for="s_first_name" class="required">Spouse/Dependent First Name</label>
                        </td>
                        <td>
-                           <input type="text" id="sfname" name="sfname">
-                       </td>
-                   </tr>
-                   <tr>
-                       <td>
-                           <label for="slname" class="required">Spouse/Dependent Last Name</label>
-                       </td>
-                       <td>
-                           <input type="text" id="slname" name="slname">
+                           <input type="text" id="s_first_name" name="s_first_name">
                        </td>
                    </tr>
                    <tr>
                        <td>
-                           <label for="seid" class="required">Spouse/Dependent EID Number</label>
+                           <label for="s_last_name" class="required">Spouse/Dependent Last Name</label>
                        </td>
                        <td>
-                           <input type="text" id="seid" name="seid">
+                           <input type="text" id="s_last_name" name="s_last_name">
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="s_eid_number" class="required">Spouse/Dependent EID Number</label>
+                       </td>
+                       <td>
+                           <input type="text" id="s_eid_number" name="s_eid_number">
                        </td>
                    </tr>
                    <tr>
@@ -130,9 +132,9 @@
                        <td>
                            <select id="semester" name="semester">
                                <option value="-1" selected>Please Select</option>
-                               <option value="fall">Fall</option>
-                               <option value="winter">Winter</option>
-                               <option value="summer">Summer</option>
+                               <option value="Fall">Fall</option>
+                               <option value="Winter">Winter</option>
+                               <option value="Summer">Summer</option>
                            </select>
                        </td>
                    </tr>
@@ -198,7 +200,7 @@
                    <p>I verify that my spouse/dependents are currently covered as dependent(s) under my health or dental plan with the university; if not, I understand I must provide proof of marriage or IRS dependency to the Benefits (copy of tax form, birth/adoption certificate) in advance.</p>
                </div>
                <br><br>
-               <button type="submit" class="button-large" id="submitBtn">Submit</button>
+               <input type="submit" class="button-large" id="submitBtn" name="submit">
                <input type="hidden" id="classes" name="classes">
            </form>
         </div>

@@ -1,13 +1,16 @@
+<?php
+$date = new DateTime();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>System User UI</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/main.css?ver=<?php echo $date->getTimestamp();?>">
+    <link rel="stylesheet" href="css/component.css?ver=<?php echo $date->getTimestamp();?>">
     <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/SystemUser.js"></script>
+    <script src="../js/main.js?ver=<?php echo $date->getTimestamp();?>"></script>
+    <script src="../js/SystemUser.js?ver=<?php echo $date->getTimestamp();?>"></script>
 
 </head>
 <body>
@@ -74,7 +77,7 @@
 
                </table>
 			   <br><br>
-               <button type="create" class="button-large" id="CreateBtn">Create</button>
+               <input type="create" class="button-large" id="CreateBtn" type="submit">
 
 
 		<button type="cancel" class="button-large" id="CancelBtn">Cancel</button>

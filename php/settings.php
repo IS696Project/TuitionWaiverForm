@@ -1,26 +1,29 @@
+<?php
+$date = new DateTime();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Search Tuition Waiver Form</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/main.css?ver=<?php echo $date->getTimestamp();?>">
+    <link rel="stylesheet" href="css/component.css?ver=<?php echo $date->getTimestamp();?>">
     <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/settings.js"></script>
+    <script src="../js/main.js?ver=<?php echo $date->getTimestamp();?>"></script>
+    <script src="../js/settings.js?ver=<?php echo $date->getTimestamp();?>"></script>
 </head>
 
 
 <body>
   <div class="container">
     <div class="header">
-      <div>Settings</div>
+        <div>Human Resources</div>
     </div>
     <div class="title">Settings</div>
     <div class="form">
       <!-- optional and pending review -->
-      <form class="settings" action="index.html" method="post">
-        <table>
+      <form  action="index.html" method="post">
+        <table class="form-table" width="50%">
           <tr>
             <td>
               <label for="eid">Employee ID</label>

@@ -21,13 +21,15 @@ class DB
                 ":" . implode(", :", array_keys($data))
             );
             $statement = $this->connection->prepare($sql);
-            if($statement->execute($data)==TRUE)
-                return $this->connection->lastInsertId("id");
+            if($statement->execute($data)==TRUE) {
+                $id = $this->connection->lastInsertId("id");
+                return $id;
+            }
             else
                 return -1;
-        }catch(PDOExecption $e) {
+        }catch(PDOException $e) {
             $this->connection->rollback();
-            print "Error!: " . $e->getMessage() . "</br>";
+            echo "Error!: " . $e->getMessage() . "</br>";
             return -1;
         }
     }

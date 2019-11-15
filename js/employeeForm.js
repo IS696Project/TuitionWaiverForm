@@ -1,4 +1,5 @@
 function onFormSubmit() {
+    return true;
     var fname = $("#first_name").val();
     var lname = $("#last_name").val();
     var eClass = $("#e_class").val();

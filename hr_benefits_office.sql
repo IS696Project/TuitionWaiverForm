@@ -12,6 +12,7 @@ CREATE TABLE `class` (
   `student_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `id` bigint(20) NOT NULL,
@@ -23,8 +24,10 @@ CREATE TABLE `employee` (
   `hired_date` date DEFAULT NULL,
   `email` varchar(128) NOT NULL,
   `department` varchar(128) DEFAULT NULL,
-  `semester` varchar(32) NOT NULL
+  `semester` varchar(32) NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -56,8 +59,9 @@ CREATE TABLE `student` (
   `s_last_name` varchar(50) NOT NULL,
   `s_eid_number` varchar(10) NOT NULL,
   `employee_id` bigint(20) NOT NULL,
-  `spouse_dependent` tinyint(4) NOT NULL
+  `spouse_dependent` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `tuition_waiver`;
 CREATE TABLE `tuition_waiver` (
@@ -104,16 +108,16 @@ ALTER TABLE `user`
 
 
 ALTER TABLE `class`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 ALTER TABLE `employee`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 ALTER TABLE `log`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `student`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 ALTER TABLE `tuition_waiver`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
@@ -130,3 +134,6 @@ ALTER TABLE `log`
 
 ALTER TABLE `student`
   ADD CONSTRAINT `student_employee_id` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
+
+ALTER TABLE `tuition_waiver`
+  ADD CONSTRAINT `waiver_employee` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
