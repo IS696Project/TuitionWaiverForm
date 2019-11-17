@@ -48,14 +48,8 @@ $date = new DateTime();
               <input placeholder="Semester Start Date" type="text" id="sem_start_date" name="sem_start_date">
             </td>
           </tr>
-          <tr>
-            <td>
-              <label for="grad_cost">Graduate Cost</label>
-            </td>
-            <td>
-              <input placeholder="Graduate Cost" type="text" id="grad_cost" name="grad_cost">
-            </td>
-          </tr>
+
+          //Undergraduate Costs
           <tr>
             <td>
               <label for="under_grad_cost">Undergraduate Cost</label>
@@ -66,12 +60,49 @@ $date = new DateTime();
           </tr>
           <tr>
             <td>
+              <label for="cs_under_grad_cost">CS Undergraduate Cost</label>
+            </td>
+            <td>
+              <input placeholder="CS Undergraduate Cost" type="text" id="cs_under_grad_cost" name="cs_under_grad_cost">
+            </td>
+          </tr>
+
+          //Graduate Costs
+          <tr>
+            <td>
+              <label for="grad_cost">Graduate Cost</label>
+            </td>
+            <td>
+              <input placeholder="Graduate Cost" type="text" id="grad_cost" name="grad_cost">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="cs_grad_cost">CS Graduate Cost</label>
+            </td>
+            <td>
+              <input placeholder="CS Graduate Cost" type="text" id="cs_grad_cost" name="cs_grad_cost">
+            </td>
+          </tr>
+
+          //Doctoral Costs
+          <tr>
+            <td>
               <label for="doc_cost">Doctoral Cost</label>
             </td>
             <td>
               <input placeholder="Doctoral Cost" type="text" id="doc_cost" name="doc_cost">
             </td>
           </tr>
+          <tr>
+            <td>
+              <label for="cs_doc_cost">CS Doctoral Cost</label>
+            </td>
+            <td>
+              <input placeholder="CS Doctoral Cost" type="text" id="cs_doc_cost" name="cs_doc_cost">
+            </td>
+          </tr>
+
         </table>
 
       </form>
