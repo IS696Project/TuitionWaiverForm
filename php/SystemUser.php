@@ -51,7 +51,7 @@ $date = new DateTime();
 
                  <tr>
                      <td>
-                         <label for="password" class="required">Password</label>
+                         <label for="password">Password</label>
                      </td>
                      <td>
                          <input type="text" id="password" name="password">
