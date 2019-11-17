@@ -12,7 +12,7 @@ select{
     font-size: 90%;
     font-style: normal;
 }
-button{
+button,input[type=button], input[type=submit]{
     background-color: #046A38;
     color: white;
     border-radius: 5px;

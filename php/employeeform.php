@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+<?php
+$date = new DateTime();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>EMPLOYEE APPLICATION FOR TUITION WAIVER</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/component.css">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/employeeForm.js"></script>
+    <link rel="stylesheet" href="../css/main.css?ver=<?php echo $date->getTimestamp();?>">
+    <link rel="stylesheet" href="../css/component.css?ver=<?php echo $date->getTimestamp();?>">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/main.js?ver=<?php echo $date->getTimestamp();?>"></script>
+    <script src="../js/employeeForm.js?ver=<?php echo $date->getTimestamp();?>"></script>
 
 </head>
 <body>
@@ -17,7 +19,7 @@
         </div>
         <div class="title">EMPLOYEE APPLICATION FOR TUITION WAIVER</div>
         <div class="form">
-           <form onsubmit="return onFormSubmit()">
+           <form onsubmit="return onFormSubmit()" action="" method="post">
                <table class="form-table" width="50%">
                    <tr>
                        <td>
@@ -78,8 +80,7 @@
                            <label for="phone">Phone Number</label>
                        </td>
                        <td>
-                           <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                  placeholder="xxx-xxx-xxxx">
+                           <input type="tel" id="phone" name="phone">
                        </td>
                    </tr>
                    <tr>
@@ -100,9 +101,9 @@
                        <td>
                            <select id="semester" name="semester">
                                <option value="-1" selected>Please Select</option>
-                               <option value="fall">Fall</option>
-                               <option value="winter">Winter</option>
-                               <option value="summer">Summer</option>
+                               <option value="Fall">Fall</option>
+                               <option value="Winter">Winter</option>
+                               <option value="Summer">Summer</option>
                            </select>
                        </td>
                    </tr>
@@ -183,7 +184,8 @@
             <p>I understand that in the event a payroll deduction must be made as herein provided, the University will collect an amount not to exceed 25% of the gross amount of my regular pay check every pay period until the full amount is collected, unless I terminate my employment, in which case the entire amount may be deducted. <b>I also understand any amount of granted graduate tuition exceeding the IRS Qualified Educational Assistance Amount ($5,250) in a calendar year will be taxable.</b></p>
         </div>
                <br><br>
-               <button type="submit" class="button-large" id="submitBtn">Submit</button>
+               <input type="submit" class="button-large" id="submitBtn" name="submit">
+               <input type="hidden" id="classes" name="classes">
            </form>
         </div>
     </div>

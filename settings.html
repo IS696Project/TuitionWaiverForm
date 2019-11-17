@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/component.css">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
 <!--    <script src="js/employeeForm.js"></script>-->
 
 </head>
@@ -15,31 +16,59 @@
 <body>
   <div class="container">
     <div class="header">
-      <div>Settings</div>
+      <div>Human Resources</div>
     </div>
     <div class="title">Settings</div>
     <div class="form">
       <!-- optional and pending review -->
-      <form class="" action="index.html" method="post">
-        <table>
+      <form  action="index.html" method="post">
+        <table class="form-table" width="50%">
           <tr>
+            <td>
+              <label for="eid">Employee ID</label>
+            </td>
             <td>
               <input placeholder="Employee ID" type="text" id="eid" name="eid">
             </td>
           </tr>
           <tr>
             <td>
+              <label for="dueDate">Due date</label>
+            </td>
+            <td>
               <input placeholder="Due Date" type="date" id="dueDate" name="dueDate">
             </td>
           </tr>
           <tr>
+            <td>
+              <label for="semStartDate">Semester Start Date</label>
+            </td>
             <td>
               <input placeholder="Semester Start Date" type="text" id="semStartDate" name="semStartDate">
             </td>
           </tr>
           <tr>
             <td>
+              <label for="gradCost">Graduate Cost</label>
+            </td>
+            <td>
               <input placeholder="Graduate Cost" type="text" id="gradCost" name="gradCost">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="underGradCost">Undergraduate Cost</label>
+            </td>
+            <td>
+              <input placeholder="Undergraduate Cost" type="text" id="UnderGradCost" name="underGradCost">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="docCost">Doctoral Cost</label>
+            </td>
+            <td>
+              <input placeholder="Doctoral Cost" type="text" id="docCost" name="docCost">
             </td>
           </tr>
         </table>
