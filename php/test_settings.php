@@ -22,7 +22,7 @@ $date = new DateTime();
     <div class="title">Settings</div>
     <div class="form">
       <!-- optional and pending review -->
-      <form  action="index.html" method="post">
+      <form  action="index.html" method="post" onSubmit="saveBtn()">
         <table class="form-table" width="50%">
           <tr>
             <td>
@@ -45,7 +45,7 @@ $date = new DateTime();
               <label for="sem_start_date">Semester Start Date</label>
             </td>
             <td>
-              <input placeholder="Semester Start Date" type="text" id="sem_start_date" name="sem_start_date">
+              <input placeholder="Semester Start Date" type="date" id="sem_start_date" name="sem_start_date">
             </td>
           </tr>
 
@@ -105,9 +105,26 @@ $date = new DateTime();
 
         </table>
 
+        <br><br>
+        <input type="submit" class="button-large" name="submit" value="Submit">
       </form>
 
-    </div>
+      <script>
+        function saveBtn() {
+              $data = array(
+                              "cs_grad_cost" => "0"
+                              "under_grad_cost" => "0"
+                              "grad_cost" => "0"
+                              "cs_grad_cost" => "0"
+                              "doc_cost" => "0"
+                              "cs_doc_cost" => "0"
+                             );
+              $db = new DB();
+              echo $db->update("setting","",$data);
+              alert("The data was submitted");
+                        }
+      </script>
 
+    </div>
   </div>
 </body>
