@@ -1,13 +1,23 @@
 <?php
 $date = new DateTime();
+
+function saveBtn() {
+      $data = array(
+        "grad_cost" => "0"
+      );
+      $db = new DB();
+      echo $db->update("setting","",$data);
+      alert("The data was submitted");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Search Tuition Waiver Form</title>
-    <link rel="stylesheet" href="css/main.css?ver=<?php echo $date->getTimestamp();?>">
-    <link rel="stylesheet" href="css/component.css?ver=<?php echo $date->getTimestamp();?>">
+    <link rel="stylesheet" href="../css/main.css?ver=<?php echo $date->getTimestamp();?>">
+    <link rel="stylesheet" href="../css/component.css?ver=<?php echo $date->getTimestamp();?>">
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/main.js?ver=<?php echo $date->getTimestamp();?>"></script>
     <script src="../js/settings.js?ver=<?php echo $date->getTimestamp();?>"></script>
@@ -22,7 +32,7 @@ $date = new DateTime();
     <div class="title">Settings</div>
     <div class="form">
       <!-- optional and pending review -->
-      <form  action="index.html" method="post" onSubmit="saveBtn()">
+      <form  action="test_settings.php" method="post" onSubmit="saveBtn()">
         <table class="form-table" width="50%">
           <tr>
             <td>
@@ -37,7 +47,7 @@ $date = new DateTime();
               <label for="due_date">Due date</label>
             </td>
             <td>
-              <input placeholder="Due Date" type="date" id="due_date" name="due_date">
+              <input type="date" id="due_date" name="due_date">
             </td>
           </tr>
           <tr>
@@ -45,11 +55,11 @@ $date = new DateTime();
               <label for="sem_start_date">Semester Start Date</label>
             </td>
             <td>
-              <input placeholder="Semester Start Date" type="date" id="sem_start_date" name="sem_start_date">
+              <input type="date" id="sem_start_date" name="sem_start_date">
             </td>
           </tr>
 
-          //Undergraduate Costs
+          <!--Undergraduate Costs-->
           <tr>
             <td>
               <label for="under_grad_cost">Undergraduate Cost</label>
@@ -67,7 +77,7 @@ $date = new DateTime();
             </td>
           </tr>
 
-          //Graduate Costs
+          <!--Graduate Costs-->
           <tr>
             <td>
               <label for="grad_cost">Graduate Cost</label>
@@ -85,7 +95,7 @@ $date = new DateTime();
             </td>
           </tr>
 
-          //Doctoral Costs
+          <!--Doctoral Costs-->
           <tr>
             <td>
               <label for="doc_cost">Doctoral Cost</label>
