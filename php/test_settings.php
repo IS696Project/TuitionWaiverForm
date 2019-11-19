@@ -1,13 +1,22 @@
 <?php
+require "db.php";
 $date = new DateTime();
-
-function saveBtn() {
-      $data = array(
-        "grad_cost" => "0"
-      );
-      $db = new DB();
-      echo $db->update("setting","",$data);
-      alert("The data was submitted");
+$flag=0;
+if (isset($_POST['submit'])) {
+    $data = array(
+        "under_grad_cost" => $_POST['under_grad_cost'],
+        "cs_under_grad_cost"  => $_POST['cs_under_grad_cost'],
+        "grad_cost"     => $_POST['grad_cost'],
+        "cs_grad_cost" => $_POST['cs_grad_cost'],
+        "doc_cost"     => $_POST['doc_cost'],
+        "cs_doc_cost" => $_POST['cs_doc_cost'],
+        "due_date" => $_POST['due_date'],
+        "sem_start_date" => $_POST['sem_start_date'],
+    );
+    $db = new DB();
+    $id = $db->update("setting","",$data);
+    echo "id data".$id;
+    if (strval($id)>-1){$flag=1;}
 }
 
 ?>
@@ -21,6 +30,11 @@ function saveBtn() {
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/main.js?ver=<?php echo $date->getTimestamp();?>"></script>
     <script src="../js/settings.js?ver=<?php echo $date->getTimestamp();?>"></script>
+    <script>
+      <?php if ($flag==1){ ?>
+      alert("The data is added");
+      <?php } ?>
+    </script>
 </head>
 
 
@@ -32,16 +46,8 @@ function saveBtn() {
     <div class="title">Settings</div>
     <div class="form">
       <!-- optional and pending review -->
-      <form  action="test_settings.php" method="post" onSubmit="saveBtn()">
+      <form onsubmit="return onFormSubmit()" action="test_settings.php" method="post" onSubmit="saveBtn()">
         <table class="form-table" width="50%">
-          <tr>
-            <td>
-              <label for="eid">Employee ID</label>
-            </td>
-            <td>
-              <input placeholder="Employee ID" type="text" id="eid" name="eid">
-            </td>
-          </tr>
           <tr>
             <td>
               <label for="due_date">Due date</label>
@@ -116,9 +122,11 @@ function saveBtn() {
         </table>
 
         <br><br>
-        <input type="submit" class="button-large" name="submit" value="Submit">
+        <input type="submit" class="button-large" id="submitBtn" name="submit">
+
       </form>
 
     </div>
   </div>
+  <div class="validation-msg">Please fill all required fields</div>
 </body>
