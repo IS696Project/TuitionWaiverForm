@@ -15,7 +15,6 @@ if (isset($_POST['submit'])) {
     );
     $db = new DB();
     $id = $db->update("setting","",$data);
-    echo "id data".$id;
     if (strval($id)>-1){$flag=1;}
 }
 
