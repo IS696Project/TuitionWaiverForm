@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
         "last_name"  => $_POST['last_name'],
         "email"     => $_POST['email'],
         "active" => $_POST['active'],
+        "position" => $_POST['position'],
         "password"     => $_POST['password'],
         "admin" => $_POST['admin']
 
